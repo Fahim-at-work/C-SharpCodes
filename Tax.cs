@@ -16,12 +16,13 @@ namespace test
             //declaring the variables
             decimal tax_rate = 18 / 100M, gross_pay, tax_amount, take_home_pay;
 
-            //calculating the gross pay, tax amount, take home 
-
+            //calculating the gross pay 
             gross_pay = hourly_pay * hours_worked;
-
+			
+			//calculating the tax amount
             tax_amount = gross_pay * tax_rate;
 
+			//calculating the take home
             take_home_pay = gross_pay - tax_amount;
 
             //Printing the output with dollar sign and specific decimal places
