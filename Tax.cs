@@ -1,29 +1,37 @@
 ﻿using System;
 
-namespace _2020._01._20
+namespace test
 {
-    class Tax
+    class Program
     {
         static void Main(string[] args)
         {
-            double tax = 0.13;
-            double total_cost, total_tax, final_price;
-            double price_of_item;
+            //taking input from the user
+            Console.Write("Enter the total hours worked: ");
+            var hours_worked = Convert.ToDecimal(Console.ReadLine());
 
-            
-            Console.Write("Enter the price of the item: ");
-            price_of_item = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the hourly pay rate: ");
+            var hourly_pay = Convert.ToDecimal(Console.ReadLine());
 
-            Console.Write("Enter the number of items you want: ");
-            var item_number = Convert.ToInt32(Console.ReadLine());
+            //declaring the variables
+            decimal tax_rate = 18 / 100M, gross_pay, tax_amount, take_home_pay;
 
-            total_cost = item_number * price_of_item;
-            total_tax = total_cost * tax;
-            final_price = total_cost + total_tax;
+            //calculating the gross pay, tax amount, take home 
 
-            Console.WriteLine("The total cost is {0}", final_price);
+            gross_pay = hourly_pay * hours_worked;
+
+            tax_amount = gross_pay * tax_rate;
+
+            take_home_pay = gross_pay - tax_amount;
+
+            //Printing the output with dollar sign and specific decimal places
+            Console.WriteLine("\nGross Pay: {0:C}", gross_pay);
+            Console.WriteLine("Tax  Rate: {0:0}%", tax_rate * 100);
+            Console.WriteLine("Tax Amount: {0:C}", tax_amount);
+            Console.WriteLine("Take Home Pay: {0:C}", take_home_pay);
 
             Console.ReadLine();
+
         }
     }
 }
